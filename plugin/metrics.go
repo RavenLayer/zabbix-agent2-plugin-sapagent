@@ -27,27 +27,28 @@ import (
 )
 
 const (
-	keyPing         = "sap.agent.ping"
-	keyVersion      = "sap.agent.version"
-	keyCPUDiscovery = "sap.agent.cpu.discovery"
-	keyCPUUtil      = "sap.agent.cpu.util"
-	keyCPULoad      = "sap.agent.cpu.load"
-	keyCPUNum       = "sap.agent.cpu.num"
-	keyCPUIntr      = "sap.agent.cpu.intr"
-	keyCPUSwitches  = "sap.agent.cpu.switches"
-	keyMem          = "sap.agent.mem"
-	keySwapSize     = "sap.agent.swap.size"
-	keySwapIn       = "sap.agent.swap.in"
-	keySwapOut      = "sap.agent.swap.out"
-	keyNetDiscovery = "sap.agent.net.discovery"
-	keyNetIn        = "sap.agent.net.in"
-	keyNetOut       = "sap.agent.net.out"
-	keyFsDiscovery  = "sap.agent.fs.discovery"
-	keyFsSize       = "sap.agent.fs.size"
-	keyDevDiscovery = "sap.agent.dev.discovery"
-	keyDev          = "sap.agent.dev"
-	keyOsName       = "sap.agent.os.name"
-	keyOsVersion    = "sap.agent.os.version"
+	keyPing              = "sap.agent.ping"
+	keyVersion           = "sap.agent.version"
+	keyCPUDiscovery      = "sap.agent.cpu.discovery"
+	keyCPUUtil           = "sap.agent.cpu.util"
+	keyCPULoad           = "sap.agent.cpu.load"
+	keyCPUNum            = "sap.agent.cpu.num"
+	keyCPUIntr           = "sap.agent.cpu.intr"
+	keyCPUSwitches       = "sap.agent.cpu.switches"
+	keyMem               = "sap.agent.mem"
+	keySwapSize          = "sap.agent.swap.size"
+	keySwapIn            = "sap.agent.swap.in"
+	keySwapOut           = "sap.agent.swap.out"
+	keyNetDiscovery      = "sap.agent.net.discovery"
+	keyNetIn             = "sap.agent.net.in"
+	keyNetOut            = "sap.agent.net.out"
+	keyFsDiscovery       = "sap.agent.fs.discovery"
+	keyFsSize            = "sap.agent.fs.size"
+	keyDevDiscovery      = "sap.agent.dev.discovery"
+	keyDev               = "sap.agent.dev"
+	keyOsName            = "sap.agent.os.name"
+	keyOsVersion         = "sap.agent.os.version"
+	keyDatabaseDiscovery = "sap.agent.db.discovery"
 
 	uriParam                   = "Uri"
 	usernameParam              = "Username"
@@ -192,6 +193,10 @@ var metrics = metric.MetricSet{
 		"Returns host version information.",
 		getParameters(nil), false,
 	),
+	keyDatabaseDiscovery: metric.New(
+		"Returns JSON discovery data of database instances.",
+		getParameters(nil), false,
+	),
 }
 
 type AgentURIValidator struct {
@@ -267,6 +272,8 @@ func getHandlerFunc(key string) handlerFunc {
 		return osNameHandler
 	case keyOsVersion:
 		return osVersionHandler
+	case keyDatabaseDiscovery:
+		return databaseDiscoveryHandler
 	default:
 		return nil
 	}

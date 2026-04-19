@@ -74,6 +74,21 @@ type GetComputerSystemResponse struct {
 	} `xml:"result"`
 }
 
+type ListDatabaseSystemsRequest struct {
+	XMLName xml.Name `xml:"urn:SAPHostControl ListDatabaseSystems"`
+}
+
+type DatabaseItem struct {
+	Status     string         `xml:"mStatus"`
+	Database   []ArgumentItem `xml:"mDatabase>item"`
+	Properties []ArgumentItem `xml:"mProperties>item"`
+}
+
+type ListDatabaseSystemsResponse struct {
+	XMLName xml.Name       `xml:"ListDatabaseSystemsResponse"`
+	Result  []DatabaseItem `xml:"result>item"`
+}
+
 type ExecuteOperationRequest struct {
 	XMLName   xml.Name       `xml:"urn:SAPHostControl ExecuteOperation"`
 	Operation string         `xml:"aOperation"`
@@ -415,4 +430,19 @@ func (c *SAPClient) ExecuteVersionInfo() (string, error) {
 	})
 
 	return fullVersion, nil
+}
+
+// ListDatabaseSystems handles the ListDatabaseSystemsRequest SOAP call without caching
+func (c *SAPClient) ListDatabaseSystems() ([]DatabaseItem, error) {
+	req := ListDatabaseSystemsRequest{}
+	res := ListDatabaseSystemsResponse{}
+	ctx, cancel := context.WithTimeout(context.Background(), c.HTTPClient.Timeout)
+	defer cancel()
+
+	err := c.Call(ctx, "ListDatabaseSystems", req, &res)
+	if err != nil {
+		return nil, err
+	}
+
+	return res.Result, nil
 }

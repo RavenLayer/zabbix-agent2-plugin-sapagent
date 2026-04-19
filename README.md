@@ -173,6 +173,8 @@ Then, you will be able to use these names as the first parameter (ConnString) in
 
 `sap.agent.os.version[<common_params>]` — returns host version information.
 
+`sap.agent.db.discovery[<common_params>]` — returns JSON discovery data of databases.
+
 ## Troubleshooting
 The plugin uses Zabbix agent's logs. You can increase the debugging level of the Zabbix Agent if you need more details about what is happening.
 
