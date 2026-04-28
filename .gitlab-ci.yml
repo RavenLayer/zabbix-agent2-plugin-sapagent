@@ -1,0 +1,4 @@
+include:
+  - project: '$CI_PROJECT_PATH'
+    ref: 'sys/gitlab-ci'
+    file: 'pipeline.yml'

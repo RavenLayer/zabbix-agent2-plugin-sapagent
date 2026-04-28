@@ -40,9 +40,11 @@ clean:
 
 
 lint:
+	go mod tidy
 	golangci-lint run $(TOPDIR)/...
 
 test:
+	go mod tidy
 	go test -v -tags tests $(TOPDIR)/...
 
 format:
