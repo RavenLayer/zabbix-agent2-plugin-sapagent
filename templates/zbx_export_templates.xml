@@ -1,0 +1,1197 @@
+<zabbix_export>
+  <version>5.0</version>
+  <date>2026-05-04T00:00:00Z</date>
+  <groups>
+    <group>
+      <name>Templates/Applications</name>
+    </group>
+  </groups>
+  <templates>
+    <template>
+      <template>Template SAP Host Agent by Zabbix agent 2</template>
+      <name>Template SAP Host Agent by Zabbix agent 2</name>
+      <description>Version: __TEMPLATE_VERSION__</description>
+      <groups>
+        <group>
+          <name>Templates/Applications</name>
+        </group>
+      </groups>
+      <applications>
+        <application>
+          <name>SAP Host Agent</name>
+        </application>
+        <application>
+          <name>SAP Host Agent: CPU</name>
+        </application>
+        <application>
+          <name>SAP Host Agent: Filesystem</name>
+        </application>
+        <application>
+          <name>SAP Host Agent: Memory</name>
+        </application>
+        <application>
+          <name>SAP Host Agent: Network</name>
+        </application>
+        <application>
+          <name>SAP Host Agent: OS</name>
+        </application>
+        <application>
+          <name>SAP Host Agent: Storage</name>
+        </application>
+      </applications>
+      <items>
+        <item>
+          <name>CPU: Interrupt rate</name>
+          <key>sap.agent.cpu.intr["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}"]</key>
+          <history>7d</history>
+          <value_type>FLOAT</value_type>
+          <units>rps</units>
+          <applications>
+            <application>
+              <name>SAP Host Agent: CPU</name>
+            </application>
+          </applications>
+        </item>
+        <item>
+          <name>CPU: Load average (1m)</name>
+          <key>sap.agent.cpu.load["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","avg1"]</key>
+          <history>7d</history>
+          <value_type>FLOAT</value_type>
+          <applications>
+            <application>
+              <name>SAP Host Agent: CPU</name>
+            </application>
+          </applications>
+        </item>
+        <item>
+          <name>CPU: Load average (5m)</name>
+          <key>sap.agent.cpu.load["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","avg5"]</key>
+          <history>7d</history>
+          <value_type>FLOAT</value_type>
+          <applications>
+            <application>
+              <name>SAP Host Agent: CPU</name>
+            </application>
+          </applications>
+        </item>
+        <item>
+          <name>CPU: Load average (15m)</name>
+          <key>sap.agent.cpu.load["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","avg15"]</key>
+          <history>7d</history>
+          <value_type>FLOAT</value_type>
+          <applications>
+            <application>
+              <name>SAP Host Agent: CPU</name>
+            </application>
+          </applications>
+        </item>
+        <item>
+          <name>CPU: Number of CPUs</name>
+          <key>sap.agent.cpu.num["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}"]</key>
+          <history>7d</history>
+          <applications>
+            <application>
+              <name>SAP Host Agent: CPU</name>
+            </application>
+          </applications>
+        </item>
+        <item>
+          <name>CPU: Context switch rate</name>
+          <key>sap.agent.cpu.switches["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}"]</key>
+          <history>7d</history>
+          <value_type>FLOAT</value_type>
+          <units>rps</units>
+          <applications>
+            <application>
+              <name>SAP Host Agent: CPU</name>
+            </application>
+          </applications>
+        </item>
+        <item>
+          <name>CPU: Utilization (idle)</name>
+          <key>sap.agent.cpu.util["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","all","idle"]</key>
+          <history>7d</history>
+          <value_type>FLOAT</value_type>
+          <units>%</units>
+          <applications>
+            <application>
+              <name>SAP Host Agent: CPU</name>
+            </application>
+          </applications>
+        </item>
+        <item>
+          <name>CPU: Utilization (iowait)</name>
+          <key>sap.agent.cpu.util["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","all","iowait"]</key>
+          <history>7d</history>
+          <value_type>FLOAT</value_type>
+          <units>%</units>
+          <applications>
+            <application>
+              <name>SAP Host Agent: CPU</name>
+            </application>
+          </applications>
+        </item>
+        <item>
+          <name>CPU: Utilization (steal)</name>
+          <key>sap.agent.cpu.util["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","all","steal"]</key>
+          <history>7d</history>
+          <value_type>FLOAT</value_type>
+          <units>%</units>
+          <applications>
+            <application>
+              <name>SAP Host Agent: CPU</name>
+            </application>
+          </applications>
+        </item>
+        <item>
+          <name>CPU: Utilization (system)</name>
+          <key>sap.agent.cpu.util["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","all","system"]</key>
+          <history>7d</history>
+          <value_type>FLOAT</value_type>
+          <units>%</units>
+          <applications>
+            <application>
+              <name>SAP Host Agent: CPU</name>
+            </application>
+          </applications>
+        </item>
+        <item>
+          <name>CPU: Utilization (user)</name>
+          <key>sap.agent.cpu.util["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","all","user"]</key>
+          <history>7d</history>
+          <value_type>FLOAT</value_type>
+          <units>%</units>
+          <applications>
+            <application>
+              <name>SAP Host Agent: CPU</name>
+            </application>
+          </applications>
+        </item>
+        <item>
+          <name>Memory: Physical (available)</name>
+          <key>sap.agent.mem["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","phy","available"]</key>
+          <history>7d</history>
+          <units>B</units>
+          <applications>
+            <application>
+              <name>SAP Host Agent: Memory</name>
+            </application>
+          </applications>
+        </item>
+        <item>
+          <name>Memory: Physical (free)</name>
+          <key>sap.agent.mem["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","phy","free"]</key>
+          <history>7d</history>
+          <units>B</units>
+          <applications>
+            <application>
+              <name>SAP Host Agent: Memory</name>
+            </application>
+          </applications>
+        </item>
+        <item>
+          <name>Memory: Physical (total)</name>
+          <key>sap.agent.mem["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","phy","size"]</key>
+          <history>7d</history>
+          <units>B</units>
+          <applications>
+            <application>
+              <name>SAP Host Agent: Memory</name>
+            </application>
+          </applications>
+        </item>
+        <item>
+          <name>Memory: Virtual (total)</name>
+          <key>sap.agent.mem["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","virt","size"]</key>
+          <history>7d</history>
+          <units>B</units>
+          <applications>
+            <application>
+              <name>SAP Host Agent: Memory</name>
+            </application>
+          </applications>
+        </item>
+        <item>
+          <name>OS: Name</name>
+          <key>sap.agent.os.name["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}"]</key>
+          <delay>1d</delay>
+          <history>7d</history>
+          <trends>0</trends>
+          <value_type>CHAR</value_type>
+          <applications>
+            <application>
+              <name>SAP Host Agent: OS</name>
+            </application>
+          </applications>
+          <preprocessing>
+            <step>
+              <type>DISCARD_UNCHANGED_HEARTBEAT</type>
+              <params>1d</params>
+            </step>
+          </preprocessing>
+        </item>
+        <item>
+          <name>OS: Version</name>
+          <key>sap.agent.os.version["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}"]</key>
+          <delay>1d</delay>
+          <history>7d</history>
+          <trends>0</trends>
+          <value_type>CHAR</value_type>
+          <applications>
+            <application>
+              <name>SAP Host Agent: OS</name>
+            </application>
+          </applications>
+          <preprocessing>
+            <step>
+              <type>DISCARD_UNCHANGED_HEARTBEAT</type>
+              <params>1d</params>
+            </step>
+          </preprocessing>
+        </item>
+        <item>
+          <name>SAP Host Agent: Ping</name>
+          <key>sap.agent.ping["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}"]</key>
+          <history>7d</history>
+          <applications>
+            <application>
+              <name>SAP Host Agent</name>
+            </application>
+          </applications>
+          <valuemap>
+            <name>Service state</name>
+          </valuemap>
+          <triggers>
+            <trigger>
+              <expression>{last()}=0</expression>
+              <name>SAP Host Agent: Service is unreachable</name>
+              <priority>AVERAGE</priority>
+            </trigger>
+          </triggers>
+        </item>
+        <item>
+          <name>Memory: Swap In (bytes)</name>
+          <key>sap.agent.swap.in["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","bytes"]</key>
+          <history>7d</history>
+          <units>Bps</units>
+          <applications>
+            <application>
+              <name>SAP Host Agent: Memory</name>
+            </application>
+          </applications>
+        </item>
+        <item>
+          <name>Memory: Swap In (pages)</name>
+          <key>sap.agent.swap.in["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","pages"]</key>
+          <history>7d</history>
+          <units>pps</units>
+          <applications>
+            <application>
+              <name>SAP Host Agent: Memory</name>
+            </application>
+          </applications>
+        </item>
+        <item>
+          <name>Memory: Swap Out (bytes)</name>
+          <key>sap.agent.swap.out["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","bytes"]</key>
+          <history>7d</history>
+          <units>Bps</units>
+          <applications>
+            <application>
+              <name>SAP Host Agent: Memory</name>
+            </application>
+          </applications>
+        </item>
+        <item>
+          <name>Memory: Swap Out (pages)</name>
+          <key>sap.agent.swap.out["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","pages"]</key>
+          <history>7d</history>
+          <units>pps</units>
+          <applications>
+            <application>
+              <name>SAP Host Agent: Memory</name>
+            </application>
+          </applications>
+        </item>
+        <item>
+          <name>Memory: Swap (free)</name>
+          <key>sap.agent.swap.size["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","free"]</key>
+          <history>7d</history>
+          <units>B</units>
+          <applications>
+            <application>
+              <name>SAP Host Agent: Memory</name>
+            </application>
+          </applications>
+        </item>
+        <item>
+          <name>Memory: Swap (total)</name>
+          <key>sap.agent.swap.size["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","total"]</key>
+          <history>7d</history>
+          <units>B</units>
+          <applications>
+            <application>
+              <name>SAP Host Agent: Memory</name>
+            </application>
+          </applications>
+        </item>
+        <item>
+          <name>Memory: Swap (used)</name>
+          <key>sap.agent.swap.size["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","used"]</key>
+          <history>7d</history>
+          <units>B</units>
+          <applications>
+            <application>
+              <name>SAP Host Agent: Memory</name>
+            </application>
+          </applications>
+        </item>
+        <item>
+          <name>SAP Host Agent: Version</name>
+          <key>sap.agent.version["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}"]</key>
+          <history>7d</history>
+          <trends>0</trends>
+          <value_type>CHAR</value_type>
+          <applications>
+            <application>
+              <name>SAP Host Agent</name>
+            </application>
+          </applications>
+          <preprocessing>
+            <step>
+              <type>DISCARD_UNCHANGED_HEARTBEAT</type>
+              <params>1d</params>
+            </step>
+          </preprocessing>
+        </item>
+      </items>
+      <discovery_rules>
+        <discovery_rule>
+          <name>CPU Discovery</name>
+          <key>sap.agent.cpu.discovery["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}"]</key>
+          <delay>1h</delay>
+          <item_prototypes>
+            <item_prototype>
+              <name>CPU {#CPU.ID}: Utilization (idle)</name>
+              <key>sap.agent.cpu.util["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","{#CPU.ID}","idle"]</key>
+              <history>7d</history>
+              <value_type>FLOAT</value_type>
+              <units>%</units>
+              <applications>
+                <application>
+                  <name>SAP Host Agent: CPU</name>
+                </application>
+              </applications>
+            </item_prototype>
+            <item_prototype>
+              <name>CPU {#CPU.ID}: Utilization (iowait)</name>
+              <key>sap.agent.cpu.util["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","{#CPU.ID}","iowait"]</key>
+              <history>7d</history>
+              <value_type>FLOAT</value_type>
+              <units>%</units>
+              <applications>
+                <application>
+                  <name>SAP Host Agent: CPU</name>
+                </application>
+              </applications>
+            </item_prototype>
+            <item_prototype>
+              <name>CPU {#CPU.ID}: Utilization (system)</name>
+              <key>sap.agent.cpu.util["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","{#CPU.ID}","system"]</key>
+              <history>7d</history>
+              <value_type>FLOAT</value_type>
+              <units>%</units>
+              <applications>
+                <application>
+                  <name>SAP Host Agent: CPU</name>
+                </application>
+              </applications>
+            </item_prototype>
+            <item_prototype>
+              <name>CPU {#CPU.ID}: Utilization (user)</name>
+              <key>sap.agent.cpu.util["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","{#CPU.ID}","user"]</key>
+              <history>7d</history>
+              <value_type>FLOAT</value_type>
+              <units>%</units>
+              <applications>
+                <application>
+                  <name>SAP Host Agent: CPU</name>
+                </application>
+              </applications>
+            </item_prototype>
+          </item_prototypes>
+          <graph_prototypes>
+            <graph_prototype>
+              <name>CPU {#CPU.ID}: Utilization</name>
+              <ymin_type_1>FIXED</ymin_type_1>
+              <ymax_type_1>FIXED</ymax_type_1>
+              <graph_items>
+                <graph_item>
+                  <color>1A7C11</color>
+                  <item>
+                    <host>Template SAP Host Agent by Zabbix agent 2</host>
+                    <key>sap.agent.cpu.util["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","{#CPU.ID}","user"]</key>
+                  </item>
+                </graph_item>
+                <graph_item>
+                  <sortorder>1</sortorder>
+                  <color>F63131</color>
+                  <item>
+                    <host>Template SAP Host Agent by Zabbix agent 2</host>
+                    <key>sap.agent.cpu.util["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","{#CPU.ID}","system"]</key>
+                  </item>
+                </graph_item>
+                <graph_item>
+                  <sortorder>2</sortorder>
+                  <color>2774A4</color>
+                  <item>
+                    <host>Template SAP Host Agent by Zabbix agent 2</host>
+                    <key>sap.agent.cpu.util["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","{#CPU.ID}","iowait"]</key>
+                  </item>
+                </graph_item>
+              </graph_items>
+            </graph_prototype>
+          </graph_prototypes>
+        </discovery_rule>
+        <discovery_rule>
+          <name>Block Device Discovery</name>
+          <key>sap.agent.dev.discovery["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}"]</key>
+          <delay>1h</delay>
+          <item_prototypes>
+            <item_prototype>
+              <name>Device {#DEVNAME}: IO rate</name>
+              <key>sap.agent.dev["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","{#DEVNAME}","io"]</key>
+              <history>7d</history>
+              <value_type>FLOAT</value_type>
+              <units>ops</units>
+              <applications>
+                <application>
+                  <name>SAP Host Agent: Storage</name>
+                </application>
+              </applications>
+            </item_prototype>
+            <item_prototype>
+              <name>Device {#DEVNAME}: Queue length</name>
+              <key>sap.agent.dev["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","{#DEVNAME}","queue"]</key>
+              <history>7d</history>
+              <value_type>FLOAT</value_type>
+              <applications>
+                <application>
+                  <name>SAP Host Agent: Storage</name>
+                </application>
+              </applications>
+            </item_prototype>
+            <item_prototype>
+              <name>Device {#DEVNAME}: Service time</name>
+              <key>sap.agent.dev["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","{#DEVNAME}","svc"]</key>
+              <history>7d</history>
+              <value_type>FLOAT</value_type>
+              <units>s</units>
+              <applications>
+                <application>
+                  <name>SAP Host Agent: Storage</name>
+                </application>
+              </applications>
+            </item_prototype>
+            <item_prototype>
+              <name>Device {#DEVNAME}: Throughput</name>
+              <key>sap.agent.dev["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","{#DEVNAME}","tput"]</key>
+              <history>7d</history>
+              <value_type>FLOAT</value_type>
+              <units>Bps</units>
+              <applications>
+                <application>
+                  <name>SAP Host Agent: Storage</name>
+                </application>
+              </applications>
+            </item_prototype>
+            <item_prototype>
+              <name>Device {#DEVNAME}: Utilization</name>
+              <key>sap.agent.dev["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","{#DEVNAME}","util"]</key>
+              <history>7d</history>
+              <value_type>FLOAT</value_type>
+              <units>%</units>
+              <applications>
+                <application>
+                  <name>SAP Host Agent: Storage</name>
+                </application>
+              </applications>
+            </item_prototype>
+            <item_prototype>
+              <name>Device {#DEVNAME}: Wait time</name>
+              <key>sap.agent.dev["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","{#DEVNAME}","write"]</key>
+              <history>7d</history>
+              <value_type>FLOAT</value_type>
+              <units>s</units>
+              <applications>
+                <application>
+                  <name>SAP Host Agent: Storage</name>
+                </application>
+              </applications>
+            </item_prototype>
+          </item_prototypes>
+          <graph_prototypes>
+            <graph_prototype>
+              <name>Device {#DEVNAME}: Disk IO rate</name>
+              <graph_items>
+                <graph_item>
+                  <sortorder>1</sortorder>
+                  <color>2774A4</color>
+                  <item>
+                    <host>Template SAP Host Agent by Zabbix agent 2</host>
+                    <key>sap.agent.dev["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","{#DEVNAME}","io"]</key>
+                  </item>
+                </graph_item>
+                <graph_item>
+                  <sortorder>2</sortorder>
+                  <color>F63100</color>
+                  <yaxisside>RIGHT</yaxisside>
+                  <item>
+                    <host>Template SAP Host Agent by Zabbix agent 2</host>
+                    <key>sap.agent.dev["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","{#DEVNAME}","svc"]</key>
+                  </item>
+                </graph_item>
+                <graph_item>
+                  <sortorder>3</sortorder>
+                  <color>1A7C11</color>
+                  <yaxisside>RIGHT</yaxisside>
+                  <item>
+                    <host>Template SAP Host Agent by Zabbix agent 2</host>
+                    <key>sap.agent.dev["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","{#DEVNAME}","write"]</key>
+                  </item>
+                </graph_item>
+              </graph_items>
+            </graph_prototype>
+            <graph_prototype>
+              <name>Device {#DEVNAME}: Disk throughput</name>
+              <graph_items>
+                <graph_item>
+                  <sortorder>1</sortorder>
+                  <drawtype>GRADIENT_LINE</drawtype>
+                  <color>1A7C11</color>
+                  <item>
+                    <host>Template SAP Host Agent by Zabbix agent 2</host>
+                    <key>sap.agent.dev["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","{#DEVNAME}","tput"]</key>
+                  </item>
+                </graph_item>
+              </graph_items>
+            </graph_prototype>
+            <graph_prototype>
+              <name>Device {#DEVNAME}: Disk utilization and queue</name>
+              <graph_items>
+                <graph_item>
+                  <sortorder>1</sortorder>
+                  <color>1A7C11</color>
+                  <yaxisside>RIGHT</yaxisside>
+                  <item>
+                    <host>Template SAP Host Agent by Zabbix agent 2</host>
+                    <key>sap.agent.dev["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","{#DEVNAME}","queue"]</key>
+                  </item>
+                </graph_item>
+                <graph_item>
+                  <sortorder>2</sortorder>
+                  <drawtype>GRADIENT_LINE</drawtype>
+                  <color>2774A4</color>
+                  <item>
+                    <host>Template SAP Host Agent by Zabbix agent 2</host>
+                    <key>sap.agent.dev["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","{#DEVNAME}","util"]</key>
+                  </item>
+                </graph_item>
+              </graph_items>
+            </graph_prototype>
+          </graph_prototypes>
+        </discovery_rule>
+        <discovery_rule>
+          <name>Filesystem Discovery</name>
+          <key>sap.agent.fs.discovery["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}"]</key>
+          <delay>1h</delay>
+          <item_prototypes>
+            <item_prototype>
+              <name>FS {#FSNAME}: Free space</name>
+              <key>sap.agent.fs.size["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","{#FSNAME}","free"]</key>
+              <history>7d</history>
+              <units>B</units>
+              <applications>
+                <application>
+                  <name>SAP Host Agent: Filesystem</name>
+                </application>
+              </applications>
+            </item_prototype>
+            <item_prototype>
+              <name>FS {#FSNAME}: Total space</name>
+              <key>sap.agent.fs.size["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","{#FSNAME}","total"]</key>
+              <history>7d</history>
+              <units>B</units>
+              <applications>
+                <application>
+                  <name>SAP Host Agent: Filesystem</name>
+                </application>
+              </applications>
+            </item_prototype>
+            <item_prototype>
+              <name>FS {#FSNAME}: Space utilization</name>
+              <type>CALCULATED</type>
+              <key>sap.agent.fs.util["{#FSNAME}"]</key>
+              <history>7d</history>
+              <value_type>FLOAT</value_type>
+              <units>%</units>
+              <params>100*(last("sap.agent.fs.size[\"{$SAP.AGENT.URI}\",\"{$SAP.AGENT.USER}\",\"{$SAP.AGENT.PASSWORD}\",\"{#FSNAME}\",\"total\"]")-last("sap.agent.fs.size[\"{$SAP.AGENT.URI}\",\"{$SAP.AGENT.USER}\",\"{$SAP.AGENT.PASSWORD}\",\"{#FSNAME}\",\"free\"]"))/last("sap.agent.fs.size[\"{$SAP.AGENT.URI}\",\"{$SAP.AGENT.USER}\",\"{$SAP.AGENT.PASSWORD}\",\"{#FSNAME}\",\"total\"]")</params>
+              <applications>
+                <application>
+                  <name>SAP Host Agent: Filesystem</name>
+                </application>
+              </applications>
+              <trigger_prototypes>
+                <trigger_prototype>
+                  <expression>{last()}&gt;90</expression>
+                  <name>FS {#FSNAME}: Space utilization is too high</name>
+                  <priority>WARNING</priority>
+                </trigger_prototype>
+              </trigger_prototypes>
+            </item_prototype>
+          </item_prototypes>
+          <graph_prototypes>
+            <graph_prototype>
+              <name>FS {#FSNAME}: Space usage</name>
+              <ymin_type_1>FIXED</ymin_type_1>
+              <graph_items>
+                <graph_item>
+                  <color>1A7C11</color>
+                  <item>
+                    <host>Template SAP Host Agent by Zabbix agent 2</host>
+                    <key>sap.agent.fs.size["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","{#FSNAME}","total"]</key>
+                  </item>
+                </graph_item>
+                <graph_item>
+                  <sortorder>1</sortorder>
+                  <color>F63131</color>
+                  <item>
+                    <host>Template SAP Host Agent by Zabbix agent 2</host>
+                    <key>sap.agent.fs.size["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","{#FSNAME}","free"]</key>
+                  </item>
+                </graph_item>
+              </graph_items>
+            </graph_prototype>
+          </graph_prototypes>
+        </discovery_rule>
+        <discovery_rule>
+          <name>Network Interface Discovery</name>
+          <key>sap.agent.net.discovery["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}"]</key>
+          <delay>1h</delay>
+          <item_prototypes>
+            <item_prototype>
+              <name>Interface {#IFNAME}: Incoming traffic</name>
+              <key>sap.agent.net.in["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","{#IFNAME}","bytes"]</key>
+              <history>7d</history>
+              <value_type>FLOAT</value_type>
+              <units>Bps</units>
+              <applications>
+                <application>
+                  <name>SAP Host Agent: Network</name>
+                </application>
+              </applications>
+            </item_prototype>
+            <item_prototype>
+              <name>Interface {#IFNAME}: Incoming errors</name>
+              <key>sap.agent.net.in["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","{#IFNAME}","errors"]</key>
+              <history>7d</history>
+              <value_type>FLOAT</value_type>
+              <units>eps</units>
+              <applications>
+                <application>
+                  <name>SAP Host Agent: Network</name>
+                </application>
+              </applications>
+            </item_prototype>
+            <item_prototype>
+              <name>Interface {#IFNAME}: Incoming packets</name>
+              <key>sap.agent.net.in["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","{#IFNAME}","packets"]</key>
+              <history>7d</history>
+              <value_type>FLOAT</value_type>
+              <units>pps</units>
+              <applications>
+                <application>
+                  <name>SAP Host Agent: Network</name>
+                </application>
+              </applications>
+            </item_prototype>
+            <item_prototype>
+              <name>Interface {#IFNAME}: Outgoing traffic</name>
+              <key>sap.agent.net.out["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","{#IFNAME}","bytes"]</key>
+              <history>7d</history>
+              <value_type>FLOAT</value_type>
+              <units>Bps</units>
+              <applications>
+                <application>
+                  <name>SAP Host Agent: Network</name>
+                </application>
+              </applications>
+            </item_prototype>
+            <item_prototype>
+              <name>Interface {#IFNAME}: Outgoing errors</name>
+              <key>sap.agent.net.out["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","{#IFNAME}","errors"]</key>
+              <history>7d</history>
+              <value_type>FLOAT</value_type>
+              <units>eps</units>
+              <applications>
+                <application>
+                  <name>SAP Host Agent: Network</name>
+                </application>
+              </applications>
+            </item_prototype>
+            <item_prototype>
+              <name>Interface {#IFNAME}: Outgoing packets</name>
+              <key>sap.agent.net.out["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","{#IFNAME}","packets"]</key>
+              <history>7d</history>
+              <value_type>FLOAT</value_type>
+              <units>pps</units>
+              <applications>
+                <application>
+                  <name>SAP Host Agent: Network</name>
+                </application>
+              </applications>
+            </item_prototype>
+          </item_prototypes>
+          <graph_prototypes>
+            <graph_prototype>
+              <name>Interface {#IFNAME}: Network packets</name>
+              <graph_items>
+                <graph_item>
+                  <sortorder>1</sortorder>
+                  <color>2774A4</color>
+                  <item>
+                    <host>Template SAP Host Agent by Zabbix agent 2</host>
+                    <key>sap.agent.net.out["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","{#IFNAME}","packets"]</key>
+                  </item>
+                </graph_item>
+                <graph_item>
+                  <sortorder>2</sortorder>
+                  <color>1A7C11</color>
+                  <item>
+                    <host>Template SAP Host Agent by Zabbix agent 2</host>
+                    <key>sap.agent.net.in["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","{#IFNAME}","packets"]</key>
+                  </item>
+                </graph_item>
+                <graph_item>
+                  <sortorder>3</sortorder>
+                  <color>F63100</color>
+                  <item>
+                    <host>Template SAP Host Agent by Zabbix agent 2</host>
+                    <key>sap.agent.net.out["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","{#IFNAME}","errors"]</key>
+                  </item>
+                </graph_item>
+                <graph_item>
+                  <sortorder>4</sortorder>
+                  <color>A54F10</color>
+                  <item>
+                    <host>Template SAP Host Agent by Zabbix agent 2</host>
+                    <key>sap.agent.net.in["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","{#IFNAME}","errors"]</key>
+                  </item>
+                </graph_item>
+              </graph_items>
+            </graph_prototype>
+            <graph_prototype>
+              <name>Interface {#IFNAME}: Network traffic</name>
+              <graph_items>
+                <graph_item>
+                  <sortorder>1</sortorder>
+                  <drawtype>GRADIENT_LINE</drawtype>
+                  <color>1A7C11</color>
+                  <item>
+                    <host>Template SAP Host Agent by Zabbix agent 2</host>
+                    <key>sap.agent.net.in["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","{#IFNAME}","bytes"]</key>
+                  </item>
+                </graph_item>
+                <graph_item>
+                  <sortorder>2</sortorder>
+                  <drawtype>BOLD_LINE</drawtype>
+                  <color>2774A4</color>
+                  <item>
+                    <host>Template SAP Host Agent by Zabbix agent 2</host>
+                    <key>sap.agent.net.out["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","{#IFNAME}","bytes"]</key>
+                  </item>
+                </graph_item>
+              </graph_items>
+            </graph_prototype>
+          </graph_prototypes>
+        </discovery_rule>
+      </discovery_rules>
+      <macros>
+        <macro>
+          <macro>{$SAP.AGENT.PASSWORD}</macro>
+          <type>SECRET_TEXT</type>
+        </macro>
+        <macro>
+          <macro>{$SAP.AGENT.URI}</macro>
+          <value>http://localhost:1128</value>
+        </macro>
+        <macro>
+          <macro>{$SAP.AGENT.USER}</macro>
+          <value>sapadm</value>
+        </macro>
+      </macros>
+      <screens>
+        <screen>
+          <name>Block devices</name>
+          <hsize>3</hsize>
+          <vsize>1</vsize>
+          <screen_items>
+            <screen_item>
+              <resourcetype>20</resourcetype>
+              <style>0</style>
+              <resource>
+                <name>Device {#DEVNAME}: Disk utilization and queue</name>
+                <host>Template SAP Host Agent by Zabbix agent 2</host>
+              </resource>
+              <width>500</width>
+              <height>100</height>
+              <x>0</x>
+              <y>0</y>
+              <colspan>1</colspan>
+              <rowspan>1</rowspan>
+              <elements>0</elements>
+              <valign>0</valign>
+              <halign>0</halign>
+              <dynamic>0</dynamic>
+              <sort_triggers>0</sort_triggers>
+              <url/>
+              <application/>
+              <max_columns>1</max_columns>
+            </screen_item>
+            <screen_item>
+              <resourcetype>20</resourcetype>
+              <style>0</style>
+              <resource>
+                <name>Device {#DEVNAME}: Disk IO rate</name>
+                <host>Template SAP Host Agent by Zabbix agent 2</host>
+              </resource>
+              <width>500</width>
+              <height>100</height>
+              <x>1</x>
+              <y>0</y>
+              <colspan>1</colspan>
+              <rowspan>1</rowspan>
+              <elements>0</elements>
+              <valign>0</valign>
+              <halign>0</halign>
+              <dynamic>0</dynamic>
+              <sort_triggers>0</sort_triggers>
+              <url/>
+              <application/>
+              <max_columns>1</max_columns>
+            </screen_item>
+            <screen_item>
+              <resourcetype>20</resourcetype>
+              <style>0</style>
+              <resource>
+                <name>Device {#DEVNAME}: Disk throughput</name>
+                <host>Template SAP Host Agent by Zabbix agent 2</host>
+              </resource>
+              <width>500</width>
+              <height>100</height>
+              <x>2</x>
+              <y>0</y>
+              <colspan>1</colspan>
+              <rowspan>1</rowspan>
+              <elements>0</elements>
+              <valign>0</valign>
+              <halign>0</halign>
+              <dynamic>0</dynamic>
+              <sort_triggers>0</sort_triggers>
+              <url/>
+              <application/>
+              <max_columns>1</max_columns>
+            </screen_item>
+          </screen_items>
+        </screen>
+        <screen>
+          <name>Network interfaces</name>
+          <hsize>2</hsize>
+          <vsize>1</vsize>
+          <screen_items>
+            <screen_item>
+              <resourcetype>20</resourcetype>
+              <style>0</style>
+              <resource>
+                <name>Interface {#IFNAME}: Network traffic</name>
+                <host>Template SAP Host Agent by Zabbix agent 2</host>
+              </resource>
+              <width>500</width>
+              <height>100</height>
+              <x>0</x>
+              <y>0</y>
+              <colspan>1</colspan>
+              <rowspan>1</rowspan>
+              <elements>0</elements>
+              <valign>0</valign>
+              <halign>0</halign>
+              <dynamic>0</dynamic>
+              <sort_triggers>0</sort_triggers>
+              <url/>
+              <application/>
+              <max_columns>1</max_columns>
+            </screen_item>
+            <screen_item>
+              <resourcetype>20</resourcetype>
+              <style>0</style>
+              <resource>
+                <name>Interface {#IFNAME}: Network packets</name>
+                <host>Template SAP Host Agent by Zabbix agent 2</host>
+              </resource>
+              <width>500</width>
+              <height>100</height>
+              <x>1</x>
+              <y>0</y>
+              <colspan>1</colspan>
+              <rowspan>1</rowspan>
+              <elements>0</elements>
+              <valign>0</valign>
+              <halign>0</halign>
+              <dynamic>0</dynamic>
+              <sort_triggers>0</sort_triggers>
+              <url/>
+              <application/>
+              <max_columns>1</max_columns>
+            </screen_item>
+          </screen_items>
+        </screen>
+        <screen>
+          <name>System performance</name>
+          <hsize>2</hsize>
+          <vsize>2</vsize>
+          <screen_items>
+            <screen_item>
+              <resourcetype>0</resourcetype>
+              <style>0</style>
+              <resource>
+                <name>System load</name>
+                <host>Template SAP Host Agent by Zabbix agent 2</host>
+              </resource>
+              <width>500</width>
+              <height>100</height>
+              <x>0</x>
+              <y>0</y>
+              <colspan>1</colspan>
+              <rowspan>1</rowspan>
+              <elements>0</elements>
+              <valign>0</valign>
+              <halign>0</halign>
+              <dynamic>0</dynamic>
+              <sort_triggers>0</sort_triggers>
+              <url/>
+              <application/>
+              <max_columns>3</max_columns>
+            </screen_item>
+            <screen_item>
+              <resourcetype>0</resourcetype>
+              <style>0</style>
+              <resource>
+                <name>CPU usage</name>
+                <host>Template SAP Host Agent by Zabbix agent 2</host>
+              </resource>
+              <width>500</width>
+              <height>100</height>
+              <x>1</x>
+              <y>0</y>
+              <colspan>1</colspan>
+              <rowspan>1</rowspan>
+              <elements>0</elements>
+              <valign>0</valign>
+              <halign>0</halign>
+              <dynamic>0</dynamic>
+              <sort_triggers>0</sort_triggers>
+              <url/>
+              <application/>
+              <max_columns>3</max_columns>
+            </screen_item>
+            <screen_item>
+              <resourcetype>0</resourcetype>
+              <style>0</style>
+              <resource>
+                <name>Memory usage</name>
+                <host>Template SAP Host Agent by Zabbix agent 2</host>
+              </resource>
+              <width>500</width>
+              <height>100</height>
+              <x>0</x>
+              <y>1</y>
+              <colspan>1</colspan>
+              <rowspan>1</rowspan>
+              <elements>0</elements>
+              <valign>0</valign>
+              <halign>0</halign>
+              <dynamic>0</dynamic>
+              <sort_triggers>0</sort_triggers>
+              <url/>
+              <application/>
+              <max_columns>3</max_columns>
+            </screen_item>
+            <screen_item>
+              <resourcetype>0</resourcetype>
+              <style>0</style>
+              <resource>
+                <name>Swap usage</name>
+                <host>Template SAP Host Agent by Zabbix agent 2</host>
+              </resource>
+              <width>500</width>
+              <height>100</height>
+              <x>1</x>
+              <y>1</y>
+              <colspan>1</colspan>
+              <rowspan>1</rowspan>
+              <elements>0</elements>
+              <valign>0</valign>
+              <halign>0</halign>
+              <dynamic>0</dynamic>
+              <sort_triggers>0</sort_triggers>
+              <url/>
+              <application/>
+              <max_columns>3</max_columns>
+            </screen_item>
+          </screen_items>
+        </screen>
+      </screens>
+    </template>
+  </templates>
+  <graphs>
+    <graph>
+      <name>CPU usage</name>
+      <type>STACKED</type>
+      <ymin_type_1>FIXED</ymin_type_1>
+      <ymax_type_1>FIXED</ymax_type_1>
+      <graph_items>
+        <graph_item>
+          <sortorder>1</sortorder>
+          <color>1A7C11</color>
+          <item>
+            <host>Template SAP Host Agent by Zabbix agent 2</host>
+            <key>sap.agent.cpu.util["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","all","system"]</key>
+          </item>
+        </graph_item>
+        <graph_item>
+          <sortorder>2</sortorder>
+          <color>2774A4</color>
+          <item>
+            <host>Template SAP Host Agent by Zabbix agent 2</host>
+            <key>sap.agent.cpu.util["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","all","user"]</key>
+          </item>
+        </graph_item>
+        <graph_item>
+          <sortorder>3</sortorder>
+          <color>A54F10</color>
+          <item>
+            <host>Template SAP Host Agent by Zabbix agent 2</host>
+            <key>sap.agent.cpu.util["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","all","iowait"]</key>
+          </item>
+        </graph_item>
+        <graph_item>
+          <sortorder>4</sortorder>
+          <color>FC6EA3</color>
+          <item>
+            <host>Template SAP Host Agent by Zabbix agent 2</host>
+            <key>sap.agent.cpu.util["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","all","steal"]</key>
+          </item>
+        </graph_item>
+      </graph_items>
+    </graph>
+    <graph>
+      <name>Memory usage</name>
+      <ymin_type_1>FIXED</ymin_type_1>
+      <graph_items>
+        <graph_item>
+          <sortorder>1</sortorder>
+          <drawtype>BOLD_LINE</drawtype>
+          <color>1A7C11</color>
+          <item>
+            <host>Template SAP Host Agent by Zabbix agent 2</host>
+            <key>sap.agent.mem["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","phy","size"]</key>
+          </item>
+        </graph_item>
+        <graph_item>
+          <sortorder>2</sortorder>
+          <drawtype>GRADIENT_LINE</drawtype>
+          <color>2774A4</color>
+          <item>
+            <host>Template SAP Host Agent by Zabbix agent 2</host>
+            <key>sap.agent.mem["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","phy","available"]</key>
+          </item>
+        </graph_item>
+      </graph_items>
+    </graph>
+    <graph>
+      <name>Swap usage</name>
+      <graph_items>
+        <graph_item>
+          <sortorder>1</sortorder>
+          <color>F63131</color>
+          <item>
+            <host>Template SAP Host Agent by Zabbix agent 2</host>
+            <key>sap.agent.swap.size["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","used"]</key>
+          </item>
+        </graph_item>
+        <graph_item>
+          <sortorder>2</sortorder>
+          <color>2774A4</color>
+          <item>
+            <host>Template SAP Host Agent by Zabbix agent 2</host>
+            <key>sap.agent.swap.size["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","total"]</key>
+          </item>
+        </graph_item>
+      </graph_items>
+    </graph>
+    <graph>
+      <name>System load</name>
+      <ymin_type_1>FIXED</ymin_type_1>
+      <graph_items>
+        <graph_item>
+          <sortorder>1</sortorder>
+          <color>1A7C11</color>
+          <item>
+            <host>Template SAP Host Agent by Zabbix agent 2</host>
+            <key>sap.agent.cpu.load["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","avg1"]</key>
+          </item>
+        </graph_item>
+        <graph_item>
+          <sortorder>2</sortorder>
+          <color>2774A4</color>
+          <item>
+            <host>Template SAP Host Agent by Zabbix agent 2</host>
+            <key>sap.agent.cpu.load["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","avg5"]</key>
+          </item>
+        </graph_item>
+        <graph_item>
+          <sortorder>3</sortorder>
+          <color>F63100</color>
+          <item>
+            <host>Template SAP Host Agent by Zabbix agent 2</host>
+            <key>sap.agent.cpu.load["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","avg15"]</key>
+          </item>
+        </graph_item>
+        <graph_item>
+          <sortorder>4</sortorder>
+          <color>A54F10</color>
+          <yaxisside>RIGHT</yaxisside>
+          <item>
+            <host>Template SAP Host Agent by Zabbix agent 2</host>
+            <key>sap.agent.cpu.num["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}"]</key>
+          </item>
+        </graph_item>
+      </graph_items>
+    </graph>
+  </graphs>
+  <value_maps>
+    <value_map>
+      <name>Service state</name>
+      <mappings>
+        <mapping>
+          <value>0</value>
+          <newvalue>Down</newvalue>
+        </mapping>
+        <mapping>
+          <value>1</value>
+          <newvalue>Up</newvalue>
+        </mapping>
+      </mappings>
+    </value_map>
+  </value_maps>
+</zabbix_export>
