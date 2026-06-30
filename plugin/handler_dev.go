@@ -90,7 +90,7 @@ func deviceHandler(ctx context.Context,
 		sapMetric = "Disk.AverageQueueLength"
 	case "svc":
 		sapMetric = "Disk.AverageServiceTime"
-	case "write":
+	case "wait":
 		sapMetric = "Disk.AverageWaitTime"
 	case "io":
 		sapMetric = "Disk.IORate"

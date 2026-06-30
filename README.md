@@ -167,7 +167,7 @@ Then, you will be able to use these names as the first parameter (ConnString) in
 `sap.agent.dev[<common_params>,<dev>,<mode>]` — returns host block devices information.
 *Parameters:*  
 - `dev`: block device name.
-- `mode`: device mode (`util`, `queue`, `svc`, `write`, `io`, `tput`).
+- `mode`: device mode (`util`, `queue`, `svc`, `wait`, `io`, `tput`).
 
 `sap.agent.os.name[<common_params>]` — returns host name information.
 

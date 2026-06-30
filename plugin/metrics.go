@@ -182,7 +182,7 @@ var metrics = metric.MetricSet{
 		"Returns host block devices information.",
 		getParameters(
 			&AdditionalParam{metric.NewParam("Dev", "Block device name.").SetRequired(), 3},
-			&AdditionalParam{metric.NewParam("Mode", "Device mode (queue, svc, write, io, tput, util).").WithValidator(StringEnumValidator{AllowedValues: []string{"queue", "svc", "write", "io", "tput", "util"}}).SetRequired(), 4},
+			&AdditionalParam{metric.NewParam("Mode", "Device mode (queue, svc, wait, io, tput, util).").WithValidator(StringEnumValidator{AllowedValues: []string{"queue", "svc", "wait", "io", "tput", "util"}}).SetRequired(), 4},
 		), false,
 	),
 	keyOsName: metric.New(

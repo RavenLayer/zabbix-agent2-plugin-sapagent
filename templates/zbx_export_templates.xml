@@ -519,7 +519,7 @@
             </item_prototype>
             <item_prototype>
               <name>Device {#DEVNAME}: Wait time</name>
-              <key>sap.agent.dev["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","{#DEVNAME}","write"]</key>
+              <key>sap.agent.dev["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","{#DEVNAME}","wait"]</key>
               <history>7d</history>
               <value_type>FLOAT</value_type>
               <units>s</units>
@@ -557,7 +557,7 @@
                   <yaxisside>RIGHT</yaxisside>
                   <item>
                     <host>Template SAP Host Agent by Zabbix agent 2</host>
-                    <key>sap.agent.dev["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","{#DEVNAME}","write"]</key>
+                    <key>sap.agent.dev["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","{#DEVNAME}","wait"]</key>
                   </item>
                 </graph_item>
               </graph_items>
