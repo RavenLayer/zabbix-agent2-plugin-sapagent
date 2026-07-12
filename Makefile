@@ -27,7 +27,7 @@ endif
 
 build:
 	go mod tidy
-	CGO_ENABLED=0 GOOS="$(GOOS)" GOARCH="$(GOARCH)" go build -ldflags="-s -w -buildid= -extldflags '-static'" -trimpath -o $(TOPDIR)/$(PACKAGE)
+	CGO_ENABLED=0 GOOS="$(GOOS)" GOARCH="$(GOARCH)" go build -buildmode=pie -ldflags="-s -w -buildid= -extldflags=-static-pie" -trimpath -o $(TOPDIR)/$(PACKAGE)
 
 install: build
 	install -m 0755 -d $(BIN_PATH)
