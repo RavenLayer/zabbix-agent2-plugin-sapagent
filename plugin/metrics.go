@@ -49,6 +49,8 @@ const (
 	keyOsName            = "sap.agent.os.name"
 	keyOsVersion         = "sap.agent.os.version"
 	keyDatabaseDiscovery = "sap.agent.db.discovery"
+	keyProcDiscovery     = "sap.agent.proc.discovery"
+	keyProcGet           = "sap.agent.proc.get"
 
 	uriParam                   = "Uri"
 	usernameParam              = "Username"
@@ -197,6 +199,17 @@ var metrics = metric.MetricSet{
 		"Returns JSON discovery data of database instances.",
 		getParameters(nil), false,
 	),
+	keyProcDiscovery: metric.New(
+		"Returns JSON discovery data of instance processes.",
+		getParameters(nil), false,
+	),
+	keyProcGet: metric.New(
+		"Returns JSON data of a specific instance process.",
+		getParameters(
+			&AdditionalParam{metric.NewParam("Instance", "Instance name.").SetRequired(), 3},
+			&AdditionalParam{metric.NewParam("Process", "Process name.").SetRequired(), 4},
+		), false,
+	),
 }
 
 type AgentURIValidator struct {
@@ -274,6 +287,10 @@ func getHandlerFunc(key string) handlerFunc {
 		return osVersionHandler
 	case keyDatabaseDiscovery:
 		return databaseDiscoveryHandler
+	case keyProcDiscovery:
+		return procDiscoveryHandler
+	case keyProcGet:
+		return procGetHandler
 	default:
 		return nil
 	}

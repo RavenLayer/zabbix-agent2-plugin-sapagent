@@ -1,6 +1,6 @@
 <zabbix_export>
   <version>5.0</version>
-  <date>2026-07-05T00:00:00Z</date>
+  <date>2026-07-14T00:00:00Z</date>
   <groups>
     <group>
       <name>Templates/Applications</name>
@@ -37,6 +37,9 @@
         </application>
         <application>
           <name>Operating system</name>
+        </application>
+        <application>
+          <name>Processes</name>
         </application>
       </applications>
       <items>
@@ -221,7 +224,7 @@ and {Template SAP Host Agent by Zabbix agent 2:sap.agent.cpu.load["{$SAP.AGENT.U
           <history>7d</history>
           <value_type>FLOAT</value_type>
           <units>%</units>
-          <params>(1 - last("sap.agent.mem[\"{$SAP.AGENT.URI}\",\"{$SAP.AGENT.USER}\",\"{$SAP.AGENT.PASSWORD}\",\"phy\",\"available]\"") / last("sap.agent.mem[\"{$SAP.AGENT.URI}\",\"{$SAP.AGENT.USER}\",\"{$SAP.AGENT.PASSWORD}\",\"phy\",\"size\"]")) * 100</params>
+          <params>(1 - last("sap.agent.mem[\"{$SAP.AGENT.URI}\",\"{$SAP.AGENT.USER}\",\"{$SAP.AGENT.PASSWORD}\",\"phy\",\"available\"]") / last("sap.agent.mem[\"{$SAP.AGENT.URI}\",\"{$SAP.AGENT.USER}\",\"{$SAP.AGENT.PASSWORD}\",\"phy\",\"size\"]")) * 100</params>
           <applications>
             <application>
               <name>Memory</name>
@@ -1107,6 +1110,154 @@ and {Template SAP Host Agent by Zabbix agent 2:sap.agent.net.out["{$SAP.AGENT.UR
               </graph_items>
             </graph_prototype>
           </graph_prototypes>
+        </discovery_rule>
+        <discovery_rule>
+          <name>Process discovery</name>
+          <key>sap.agent.proc.discovery["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}"]</key>
+          <delay>1h</delay>
+          <description>Discovery of instance processes.</description>
+          <item_prototypes>
+            <item_prototype>
+              <name>Process {#PROCESS.DESC}: Get info</name>
+              <key>sap.agent.proc.get["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","{#INSTANCE.NAME}","{#PROCESS.NAME}"]</key>
+              <history>0</history>
+              <trends>0</trends>
+              <value_type>TEXT</value_type>
+              <applications>
+                <application>
+                  <name>Processes</name>
+                </application>
+              </applications>
+              <application_prototypes>
+                <application_prototype>
+                  <name>Instance {#INSTANCE.NAME}</name>
+                </application_prototype>
+                <application_prototype>
+                  <name>Process {#PROCESS.DESC}</name>
+                </application_prototype>
+              </application_prototypes>
+            </item_prototype>
+            <item_prototype>
+              <name>Process {#PROCESS.DESC} pid</name>
+              <type>DEPENDENT</type>
+              <key>sap.agent.proc["{#INSTANCE.NAME}","{#PROCESS.NAME}","pid"]</key>
+              <delay>0</delay>
+              <history>7d</history>
+              <trends>0</trends>
+              <applications>
+                <application>
+                  <name>Processes</name>
+                </application>
+              </applications>
+              <application_prototypes>
+                <application_prototype>
+                  <name>Instance {#INSTANCE.NAME}</name>
+                </application_prototype>
+                <application_prototype>
+                  <name>Process {#PROCESS.DESC}</name>
+                </application_prototype>
+              </application_prototypes>
+              <preprocessing>
+                <step>
+                  <type>JSONPATH</type>
+                  <params>$.pid</params>
+                </step>
+                <step>
+                  <type>DISCARD_UNCHANGED_HEARTBEAT</type>
+                  <params>1h</params>
+                </step>
+              </preprocessing>
+              <master_item>
+                <key>sap.agent.proc.get["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","{#INSTANCE.NAME}","{#PROCESS.NAME}"]</key>
+              </master_item>
+              <trigger_prototypes>
+                <trigger_prototype>
+                  <expression>{diff()}&gt;0</expression>
+                  <name>Process {#PROCESS.DESC} has been restarted</name>
+                  <priority>INFO</priority>
+                  <manual_close>YES</manual_close>
+                </trigger_prototype>
+              </trigger_prototypes>
+            </item_prototype>
+            <item_prototype>
+              <name>Process {#PROCESS.DESC} start time</name>
+              <type>DEPENDENT</type>
+              <key>sap.agent.proc["{#INSTANCE.NAME}","{#PROCESS.NAME}","starttime"]</key>
+              <delay>0</delay>
+              <history>7d</history>
+              <trends>0</trends>
+              <value_type>CHAR</value_type>
+              <applications>
+                <application>
+                  <name>Processes</name>
+                </application>
+              </applications>
+              <application_prototypes>
+                <application_prototype>
+                  <name>Instance {#INSTANCE.NAME}</name>
+                </application_prototype>
+                <application_prototype>
+                  <name>Process {#PROCESS.DESC}</name>
+                </application_prototype>
+              </application_prototypes>
+              <preprocessing>
+                <step>
+                  <type>JSONPATH</type>
+                  <params>$.starttime</params>
+                </step>
+                <step>
+                  <type>DISCARD_UNCHANGED_HEARTBEAT</type>
+                  <params>1h</params>
+                </step>
+              </preprocessing>
+              <master_item>
+                <key>sap.agent.proc.get["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","{#INSTANCE.NAME}","{#PROCESS.NAME}"]</key>
+              </master_item>
+            </item_prototype>
+            <item_prototype>
+              <name>Process {#PROCESS.DESC} status</name>
+              <type>DEPENDENT</type>
+              <key>sap.agent.proc["{#INSTANCE.NAME}","{#PROCESS.NAME}","status"]</key>
+              <delay>0</delay>
+              <history>7d</history>
+              <trends>0</trends>
+              <value_type>CHAR</value_type>
+              <applications>
+                <application>
+                  <name>Processes</name>
+                </application>
+              </applications>
+              <application_prototypes>
+                <application_prototype>
+                  <name>Instance {#INSTANCE.NAME}</name>
+                </application_prototype>
+                <application_prototype>
+                  <name>Process {#PROCESS.DESC}</name>
+                </application_prototype>
+              </application_prototypes>
+              <preprocessing>
+                <step>
+                  <type>JSONPATH</type>
+                  <params>$.textstatus</params>
+                </step>
+                <step>
+                  <type>DISCARD_UNCHANGED_HEARTBEAT</type>
+                  <params>1h</params>
+                </step>
+              </preprocessing>
+              <master_item>
+                <key>sap.agent.proc.get["{$SAP.AGENT.URI}","{$SAP.AGENT.USER}","{$SAP.AGENT.PASSWORD}","{#INSTANCE.NAME}","{#PROCESS.NAME}"]</key>
+              </master_item>
+              <trigger_prototypes>
+                <trigger_prototype>
+                  <expression>{regexp(^Running$)}=0</expression>
+                  <name>Process {#PROCESS.DESC}: Unexpected status</name>
+                  <opdata>Current status: {ITEM.LASTVALUE1}</opdata>
+                  <priority>HIGH</priority>
+                </trigger_prototype>
+              </trigger_prototypes>
+            </item_prototype>
+          </item_prototypes>
         </discovery_rule>
       </discovery_rules>
       <macros>

@@ -164,7 +164,7 @@ Then, you will be able to use these names as the first parameter (ConnString) in
 
 `sap.agent.dev.discovery[<common_params>]` — returns JSON discovery data of block devices.
 
-`sap.agent.dev[<common_params>,<dev>,<mode>]` — returns host block devices information.
+`sap.agent.dev[<common_params>,<dev>,<mode>]` — returns host block devices information.  
 *Parameters:*  
 - `dev`: block device name.
 - `mode`: device mode (`util`, `queue`, `svc`, `wait`, `io`, `tput`).
@@ -174,6 +174,13 @@ Then, you will be able to use these names as the first parameter (ConnString) in
 `sap.agent.os.version[<common_params>]` — returns host version information.
 
 `sap.agent.db.discovery[<common_params>]` — returns JSON discovery data of databases.
+
+`sap.agent.proc.discovery[<common_params>]` — returns JSON discovery data of instance processes.
+
+`sap.agent.proc.get[<common_params>,<instance>,<process>]` — returns JSON data of a specific instance process.  
+*Parameters:*  
+- `instance`: instance name.
+- `process`: process name.
 
 ## Troubleshooting
 The plugin uses Zabbix agent's logs. You can increase the debugging level of the Zabbix Agent if you need more details about what is happening.

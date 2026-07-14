@@ -18,6 +18,7 @@ package plugin
 
 import (
 	"context"
+	"encoding/json"
 	"encoding/xml"
 	"fmt"
 	"regexp"
@@ -87,6 +88,23 @@ type DatabaseItem struct {
 type ListDatabaseSystemsResponse struct {
 	XMLName xml.Name       `xml:"ListDatabaseSystemsResponse"`
 	Result  []DatabaseItem `xml:"result>item"`
+}
+
+type ListInstancesRequest struct {
+	XMLName   xml.Name `xml:"urn:SAPHostControl ListInstances"`
+	ASelector string   `xml:"aSelector,omitempty"`
+}
+
+type SapInstance struct {
+	MSid            string `xml:"mSid"`
+	MHostname       string `xml:"mHostname"`
+	MSystemNumber   string `xml:"mSystemNumber"`
+	MSapVersionInfo string `xml:"mSapVersionInfo"`
+}
+
+type ListInstancesResponse struct {
+	XMLName   xml.Name      `xml:"urn:SAPHostControl ListInstancesResponse"`
+	Instances []SapInstance `xml:"aInstances>item"`
 }
 
 type ExecuteOperationRequest struct {
@@ -445,4 +463,41 @@ func (c *SAPClient) ListDatabaseSystems() ([]DatabaseItem, error) {
 	}
 
 	return res.Result, nil
+}
+
+// ListInstances handles the ListInstances SOAP call
+func (c *SAPClient) ListInstances() ([]SapInstance, error) {
+	sessionKey := fmt.Sprintf("%s|%s", c.URL, c.Username)
+	reqType := "ListInstances"
+
+	// 1. Check Cache
+	if data, fresh := c.cache.GetCachedData(sessionKey, reqType); fresh {
+		if val, ok := data["instances"]; ok {
+			var instances []SapInstance
+			if err := json.Unmarshal([]byte(val.Value), &instances); err == nil {
+				return instances, nil
+			}
+		}
+	}
+
+	// 2. SOAP Call
+	req := ListInstancesRequest{}
+	res := ListInstancesResponse{}
+	ctx, cancel := context.WithTimeout(context.Background(), c.HTTPClient.Timeout)
+	defer cancel()
+
+	err := c.Call(ctx, "ListInstances", req, &res)
+	if err != nil {
+		return nil, err
+	}
+
+	// 3. Update Cache
+	bz, err := json.Marshal(res.Instances)
+	if err == nil {
+		c.cache.UpdateSession(sessionKey, reqType, map[string]MetricResult{
+			"instances": {Value: string(bz)},
+		})
+	}
+
+	return res.Instances, nil
 }
