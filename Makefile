@@ -23,11 +23,17 @@ ifndef GOARCH
 GOARCH := $(shell go env GOARCH)
 endif
 
+CGO_ENABLED ?= 0
+BUILDMODE   ?= -buildmode=pie
+LDFLAGS     ?= -s -w -buildid= -extldflags=-static-pie
+GOFLAGS     ?= -trimpath
+
 .PHONY: build install clean lint test format
 
 build:
 	go mod tidy
-	CGO_ENABLED=0 GOOS="$(GOOS)" GOARCH="$(GOARCH)" go build -buildmode=pie -ldflags="-s -w -buildid= -extldflags=-static-pie" -trimpath -o $(TOPDIR)/$(PACKAGE)
+	CGO_ENABLED=$(CGO_ENABLED) GOOS="$(GOOS)" GOARCH="$(GOARCH)" \
+		go build $(BUILDMODE) -ldflags="$(LDFLAGS)" $(GOFLAGS) -o $(TOPDIR)/$(PACKAGE)
 
 install: build
 	install -m 0755 -d $(BIN_PATH)
