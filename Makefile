@@ -37,7 +37,7 @@ build:
 
 install: build
 	install -m 0755 -d $(BIN_PATH)
-	install -m 0755 $(NAME) $(BIN_PATH)/$(NAME)
+	install -m 0755 $(PACKAGE) $(BIN_PATH)/$(PACKAGE)
 	install -m 0755 -d $(CONF_PATH)
 	install -m 0644 sapagent.conf $(CONF_PATH)/sapagent.conf
 
